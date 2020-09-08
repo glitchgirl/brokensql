@@ -1,0 +1,34 @@
+doctype html
+html(lang=en)
+head
+    meta(charset="UTF-8")
+    meta(
+        name="viewport"
+        content="width=device-width, initial-scale=1.0")
+    meta(
+        http-equiv="X-UA-Compatible"
+        content="ie=edge"
+        )
+    meta(name="description" 
+        content="This is practice with a whole lot of tools, not just fixing some SQL queries and form validation."
+        )
+    link(
+        rel="stylesheet" 
+        href="https://www.w3schools.com/w3css/4/w3.css")
+    title Much more secure SQL (and some extra stuff)
+body
+header(class="w3-center w3-container w3-blue w3-card-4 w3-margin-bottom")
+        h1(class="w3-padding-16") Registered users
+main(class="w3-display-container")
+    table(class="w3-table-all w3-half w3-display-topmiddle w3-card-4 w3-hoverable w3-margin-top w3-padding")
+        thead
+            tr(class="w3-light-gray")
+                th Name
+                th Username
+                th Email
+        tbody
+            each val in result
+                tr
+                    td #{val.regname}
+                    td #{val.username}
+                    td #{val.email}
