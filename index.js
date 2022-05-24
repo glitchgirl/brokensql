@@ -7,12 +7,12 @@ var app = express();
 
 var connection = mysql.createConnection({
     host     : 'localhost',
-    user     : '',
-    database : '',
+    user     : 'root',
+    database : 'wk11hw3',
     password : ''
   });
 
-  connection.connect();
+connection.connect();
  
 connection.query('select * from customers', function (error, results, fields) {
   if (error) throw error;
