@@ -17,7 +17,8 @@ app.use(express.static('public'));
 app.use(express.json());
 
 connection.connect();
-connection.query('SELECT * FROM `users`', function (error, results, fields) {
+var sql1 = 'SELECT * FROM `users`';
+connection.query(sql1, function (error, results, fields) {
   if (error) throw error;
   console.log(results);
 });
@@ -30,8 +31,9 @@ app.post('/user', (req, res) => {
   let name = req.body.name;
   let username = req.body.username;
   let email = req.body.email;
-
-  connection.query('INSERT INTO `users` (`name`,`username`, `email`) VALUES (?,?,?)', [name, username, email] ,(err) => {
+  var sql2 = 'INSERT INTO `users` (`name`,`username`, `email`) VALUES (?,?,?)';
+  var params = [name, username, email];
+  connection.query(sql2, params,(err) => {
       if (err){ 
           console.log(err)
       }else{
